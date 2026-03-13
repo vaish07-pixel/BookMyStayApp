@@ -1,46 +1,37 @@
 /**
  * =========================================================
- * MAIN CLASS – UseCase1HotelBookingApp
+ * ABSTRACT CLASS – Room
  * =========================================================
+ * Represents a generic hotel room.
+ * Contains attributes common to all room types.
  *
- * Use Case 1: Application Entry & Welcome Message
- *
- * Description:
- * This class represents the entry point of the
- * Hotel Booking Management System.
- *
- * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message to the user
- * - Confirms that the system has started successfully
- *
- * No business logic, data structures, or user input
- * is implemented in this use case.
- *
- * The goal is to establish a clear and predictable
- * application startup point.
- *
- * @author Developer
- * @version 1.0
+ * @version 2.1
  */
 
-public class UseCase1HotelBookingApp {
+public abstract class Room {
+
+    /** Number of beds available in the room */
+    protected int numberOfBeds;
+
+    /** Total size of the room in square feet */
+    protected int squareFeet;
+
+    /** Price charged per night */
+    protected double pricePerNight;
 
     /**
-     * Application entry point.
-     *
-     * This method is the first method executed
-     * when the program is launched by the JVM.
-     *
-     * @param args Command-line arguments
+     * Constructor used by child classes
      */
-    public static void main(String[] args) {
+    public Room(int numberOfBeds, int squareFeet, double pricePerNight) {
+        this.numberOfBeds = numberOfBeds;
+        this.squareFeet = squareFeet;
+        this.pricePerNight = pricePerNight;
+    }
 
-        System.out.println("=================================");
-        System.out.println("  Welcome to Hotel Booking System");
-        System.out.println("  Application Version: v1.0");
-        System.out.println("=================================");
-
-        System.out.println("System started successfully.");
+    /** Displays room details */
+    public void displayRoomDetails() {
+        System.out.println("Beds: " + numberOfBeds);
+        System.out.println("Size: " + squareFeet + " sq.ft");
+        System.out.println("Price per night: $" + pricePerNight);
     }
 }
